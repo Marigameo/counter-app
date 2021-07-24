@@ -1,5 +1,8 @@
 import './App.css';
 import React, { useState } from 'react'
+import Header from './components/Header'
+import Screen from './components/Screen'
+import Button from './components/Button';
 
 function App() {
 
@@ -8,15 +11,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Counter app</h1>
-      <div className="screen">
-        Count - {count}
-      </div>
+      <Header/>
+      <Screen count={count}/>
       <div className="btn-container">
-        <button className="btn btn-plus" onClick={() => setCount(count + 1)}>Increment Count</button>
-        <button className="btn btn-minus" onClick={() => setCount(count - 1)}>Decrement Count</button>
-        <button className="btn btn-value" onClick={() => setCount(count + 10)}>Increment Count by value</button>
-        <button className="btn btn-reset" onClick={() => setCount(0)}>Reset Count</button>
+        <Button type="plus" btnText="Increment Count" btnAction={() => setCount(count + 1)}/>
+        <Button type="minus" btnText="Decrement Count" btnAction={() => setCount(count - 1)}/>
+        <Button type="value" btnText="Increment Count by value" btnAction={() => setCount(count + 10)}/>
+        <Button type="reset" btnText="Reset Count" btnAction={() => setCount(0)}/>
       </div>
     </div>
   );
